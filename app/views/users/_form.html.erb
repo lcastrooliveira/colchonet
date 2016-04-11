@@ -1,11 +1,6 @@
 <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2>Há erros no Fomrulário, por favor verifique</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <%= t 'general.form_error' %>
     </div>
 <% end %>
 <%= form_for @user do |f| %>
