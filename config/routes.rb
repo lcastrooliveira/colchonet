@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   get '/:locale' => 'home#index', locale: /en|pt/
+  resource :confirmation, only: [:show]
   root 'home#index'
 
 
