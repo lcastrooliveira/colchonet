@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validate :email_format
 
   has_secure_password
+  has_many :rooms
 
   before_create do |user|
     user.confirmation_token = SecureRandom.urlsafe_base64

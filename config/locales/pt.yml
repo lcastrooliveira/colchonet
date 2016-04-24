@@ -1,7 +1,21 @@
 pt:
+  rooms:
+    index:
+      title: 'Quartos disponíveis'
+    room:
+      owner_html: '&mdash; %{owner} (%{when})'
+      edit: 'Editar'
+      destroy: 'Remover'
+  dialogs:
+    destroy: 'Você tem certeza que quer remover?'
   flash:
+    alert:
+      needs_login: "Você precisa estar logado para continuar"
     notice:
       signed_in: Login Efetuado com Sucesso!
+      signed_out: 'Logout efetuado com sucesso. Até logo!'
+      already_logged_in: "Você já está logado."
+      room_created: "Quarto criado com sucesso"
   confirmations:
     success: Email confirmado com sucesso, obrigado!
   users:
@@ -33,7 +47,11 @@ pt:
     back: Voltar
   layout:
     rooms: Quartos
+    new_room: Cadastre seu quarto!
     signup: Cadastro
+    signin: Login
+    my_profile: Meu perfil
+    signout: Logout
   general:
     form_error: Há erros no formulário, por favor verifique.
 

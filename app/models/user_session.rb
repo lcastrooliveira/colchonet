@@ -3,6 +3,14 @@ class UserSession
   attr_accessor :email, :password
   validates_presence_of :email, :password
 
+  def current_user
+    User.find(@session[:user_id])
+  end
+
+  def user_signed_in?
+    @session[:user_id].present?
+  end
+
   def initialize(session,attributes={})
     @session = session
     @email = attributes[:email]
@@ -18,6 +26,10 @@ class UserSession
       false
     end
 
+  end
+
+  def destroy
+    @session[:user_id] = nil
   end
 
   def store(user)
