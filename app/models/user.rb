@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   validate :email_format
 
   has_secure_password
-  has_many :rooms
+  has_many :rooms, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   before_create do |user|
     user.confirmation_token = SecureRandom.urlsafe_base64

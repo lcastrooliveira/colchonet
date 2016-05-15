@@ -6,6 +6,12 @@ pt:
       owner_html: '&mdash; %{owner} (%{when})'
       edit: 'Editar'
       destroy: 'Remover'
+    review_form:
+      login_to_review: Faça o login para avaliar quartos
+    review:
+      stats:
+        one: '(1 avaliação)'
+        other: '(%{count} avaliações)'
   dialogs:
     destroy: 'Você tem certeza que quer remover?'
   flash:
@@ -59,6 +65,7 @@ pt:
     models:
       user: Usuário
       room: Quarto
+      review: Avaliação
     attributes:
       user:
         bio: Biografia

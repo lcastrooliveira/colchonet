@@ -1,13 +1,18 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show]
-  before_action :set_users_romm, only: [:edit, :update, :destroy]
+  before_action :set_users_room, only: [:edit, :update, :destroy]
   before_action :require_authentication, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @rooms = Room.all
+    @rooms = Room.most_recent.map do |room|
+      RoomPresenter.new(room, self, false)
+    end
   end
 
   def show
+    if user_signed_in?
+      @user_review = @room.reviews.find_or_initialize_by(user_id: current_user.id)
+    end
   end
 
   def new
@@ -42,7 +47,8 @@ class RoomsController < ApplicationController
 
   private
     def set_room
-      @room = Room.find(params[:id])
+      room_model = Room.find(params[:id])
+      @room = RoomPresenter.new(room_model,self)
     end
 
     def room_params
